@@ -12,7 +12,7 @@
 	</body>
 	<script src="jquery.min.js"></script>
 	<script>
-	$(function(){
+
 function handleTouchEvent(event) {
     //只跟踪一次触摸
    if (event.touches.length == 1) {
@@ -38,11 +38,10 @@ function handleTouchEvent(event) {
 	 }
     }
 }
-$("#demo").hover(function(){ 
+
 document.addEventListener("touchstart", handleTouchEvent, false);
 document.addEventListener("touchend", handleTouchEvent, false);
 document.addEventListener("touchmove", handleTouchEvent, false);
-})
-})
+
 	</script>
 </html>
