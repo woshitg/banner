@@ -12,8 +12,8 @@
 	</body>
 	<script src="jquery.min.js"></script>
 	<script>
-$("#demo").addEventListener("touchstart", TouchEvent, false);
-$("#demo").addEventListener("touchend", TouchEvent, false);
+document.getElementById("demo").addEventListener("touchstart", TouchEvent, false);
+document.getElementById("demo").addEventListener("touchend", TouchEvent, false);
 function TouchEvent(event) {
     //只跟踪一次触摸
    if (event.touches.length == 1) {
