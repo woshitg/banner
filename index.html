@@ -12,6 +12,29 @@
 	</body>
 	<script src="jquery.min.js"></script>
 	<script>
+$("#demo").addEventListener("touchstart", TouchEvent, false);
+$("#demo").addEventListener("touchend", TouchEvent, false);
+function TouchEvent(event) {
+    //只跟踪一次触摸
+   if (event.touches.length == 1) {
+        var output = document.getElementById("output");
+		var demo = document.getElementById('demo');
+        switch (event.type) {
+            case "touchstart":
+				document.addEventListener("touchstart", handleTouchEvent, false);
+				document.addEventListener("touchend", handleTouchEvent, false);
+				document.addEventListener("touchmove", handleTouchEvent, false);
+                break;
+            case "touchend":
+				document.removeEventListener("touchstart", handleTouchEvent, false);
+				document.removeEventListener("touchend", handleTouchEvent, false);
+				document.removeEventListener("touchmove", handleTouchEvent, false);
+                break;
+            case "touchmove":
+                break;
+	 }
+    }
+}
 
 function handleTouchEvent(event) {
     //只跟踪一次触摸
@@ -39,9 +62,7 @@ function handleTouchEvent(event) {
     }
 }
 
-document.addEventListener("touchstart", handleTouchEvent, false);
-document.addEventListener("touchend", handleTouchEvent, false);
-document.addEventListener("touchmove", handleTouchEvent, false);
+
 
 	</script>
 </html>
