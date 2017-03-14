@@ -14,6 +14,7 @@
 	<script>
 document.getElementById("demo").addEventListener("touchstart", TouchEvent, false);
 document.getElementById("demo").addEventListener("touchend", TouchEvent, false);
+document.getElementById("demo").addEventListener("touchmove", TouchEvent, false);
 function TouchEvent(event) {
     //只跟踪一次触摸
    if (event.touches.length == 1) {
@@ -21,16 +22,20 @@ function TouchEvent(event) {
 		var demo = document.getElementById('demo');
         switch (event.type) {
             case "touchstart":
+				event.preventDefault(); 
+				console.info('ss1')
 				document.addEventListener("touchstart", handleTouchEvent, false);
 				document.addEventListener("touchend", handleTouchEvent, false);
 				document.addEventListener("touchmove", handleTouchEvent, false);
                 break;
             case "touchend":
+				console.info('ss2')
 				document.removeEventListener("touchstart", handleTouchEvent, false);
 				document.removeEventListener("touchend", handleTouchEvent, false);
 				document.removeEventListener("touchmove", handleTouchEvent, false);
                 break;
             case "touchmove":
+				console.info('ss3')
                 break;
 	 }
     }
@@ -53,7 +58,7 @@ function handleTouchEvent(event) {
 				demo.style.left= event.touches[0].clientX -85+ "px";
                 break;
             case "touchmove":
-                event.preventDefault(); //阻止滚动
+                event.preventDefault(); 
                 output.innerHTML = "Touch moved (" + event.changedTouches[0].clientX + "," + event.changedTouches[0].clientY + ")";
 				demo.style.top= event.touches[0].clientY -85+ "px";
 				demo.style.left= event.touches[0].clientX -85+ "px";
@@ -61,8 +66,6 @@ function handleTouchEvent(event) {
 	 }
     }
 }
-
-
 
 	</script>
 </html>
