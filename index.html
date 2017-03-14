@@ -7,29 +7,28 @@
 
 	</head>
 	<body>
-		<p id="output">这里显示坐标4</p>
+		<p id="output">这里显示坐标</p>
 	</body>
 	<script>
 function handleTouchEvent(event) {
+alert(event.touches.length);
     //只跟踪一次触摸
- 
+   if (event.touches.length == 1) {
         var output = document.getElementById("output");
         switch (event.type) {
             case "touchstart":
-                output.innerHTML = "1";
+                output.innerHTML = "Touch started (" + event.touches[0].clientX + "," + event.touches[0].clientY + ")";
                 break;
             case "touchend":
-                output.innerHTML += "2";
+                output.innerHTML += "Touch ended (" + event.changedTouches[0].clientX + "," + event.changeTouches[0].clientY + ")";
                 break;
             case "touchmove":
                 event.preventDefault(); //阻止滚动
-                output.innerHTML += "3";
+                output.innerHTML += "Touch moved (" + event.changedTouches[0].clientX + "," + event.changedTouches[0].clientY + ")";
                 break;
 	 }
-
+    }
 }
-
-
 document.addEventListener("touchstart", handleTouchEvent, false);
 document.addEventListener("touchend", handleTouchEvent, false);
 document.addEventListener("touchmove", handleTouchEvent, false);
