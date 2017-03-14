@@ -16,14 +16,14 @@ function handleTouchEvent(event) {
         var output = document.getElementById("output");
         switch (event.type) {
             case "touchstart":
-                output.innerHTML = "Touch started (" + event.touches[0].clientX + "," + event.touches[0].clientY + ")";
+                output.innerHTML = "1";
                 break;
             case "touchend":
-                output.innerHTML += "Touch ended (" + event.changedTouches[0].clientX + "," + event.changeTouches[0].clientY + ")";
+                output.innerHTML += "2";
                 break;
             case "touchmove":
                 event.preventDefault(); //阻止滚动
-                output.innerHTML += "Touch moved (" + event.changedTouches[0].clientX + "," + event.changedTouches[0].clientY + ")";
+                output.innerHTML += "3";
                 break;
 	 }
     }
