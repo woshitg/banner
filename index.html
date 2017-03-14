@@ -11,6 +11,7 @@
 		<div id="demo" style="width:170px;height:170px;background:red;position:absolute;top:500px;left:0"></div>
 	</body>
 	<script>
+
 function handleTouchEvent(event) {
     //只跟踪一次触摸
    if (event.touches.length == 1) {
@@ -19,19 +20,19 @@ function handleTouchEvent(event) {
         switch (event.type) {
             case "touchstart":
                 output.innerHTML = "Touch started (" + event.touches[0].clientX + "," + event.touches[0].clientY + ")";
-				demo.style.top= event.touches[0].clientY + "px";
-				demo.style.left= event.touches[0].clientX + "px";
+				demo.style.top= event.touches[0].clientY +85+ "px";
+				demo.style.left= event.touches[0].clientX +85+ "px";
                 break;
             case "touchend":
                 output.innerHTML = "Touch ended (" + event.changedTouches[0].clientX + "," + event.changeTouches[0].clientY + ")";
-				demo.style.top= event.touches[0].clientY + "px";
-				demo.style.left= event.touches[0].clientX + "px";
+				demo.style.top= event.touches[0].clientY +85+ "px";
+				demo.style.left= event.touches[0].clientX +85+ "px";
                 break;
             case "touchmove":
                 event.preventDefault(); //阻止滚动
                 output.innerHTML = "Touch moved (" + event.changedTouches[0].clientX + "," + event.changedTouches[0].clientY + ")";
-				demo.style.top= event.touches[0].clientY + "px";
-				demo.style.left= event.touches[0].clientX + "px";
+				demo.style.top= event.touches[0].clientY + 85+ "px";
+				demo.style.left= event.touches[0].clientX +85+ "px";
                 break;
 	 }
     }
