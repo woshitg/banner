@@ -7,12 +7,11 @@
 
 	</head>
 	<body>
-		<p id="output">这里显示坐标1</p>
+		<p id="output">这里显示坐标</p>
 	</body>
 	<script>
 function handleTouchEvent(event) {
     //只跟踪一次触摸
-	alert("1");
     if (event.touches.length == 1) {
         var output = document.getElementById("output");
         switch (event.type) {
