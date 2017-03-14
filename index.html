@@ -7,7 +7,7 @@
 
 	</head>
 	<body>
-		<p id="output">这里显示坐标2</p>
+		<p id="output">这里显示坐标3</p>
 	</body>
 	<script>
 function handleTouchEvent(event) {
@@ -26,7 +26,10 @@ function handleTouchEvent(event) {
                 output.innerHTML += "3";
                 break;
 	 }
-    }
+    }else{
+	alert("88")
+}
+
 }
 document.addEventListener("touchstart", handleTouchEvent, false);
 document.addEventListener("touchend", handleTouchEvent, false);
