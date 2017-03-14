@@ -7,7 +7,7 @@
 
 	</head>
 	<body>
-		<p id="output">这里显示坐标1</p>
+		<p id="output">这里显示坐标2</p>
 	</body>
 	<script>
 function handleTouchEvent(event) {
@@ -19,11 +19,11 @@ function handleTouchEvent(event) {
                 output.innerHTML = "Touch started (" + event.touches[0].clientX + "," + event.touches[0].clientY + ")";
                 break;
             case "touchend":
-                output.innerHTML += "Touch ended (" + event.changedTouches[0].clientX + "," + event.changeTouches[0].clientY + ")";
+                output.innerHTML = "Touch ended (" + event.changedTouches[0].clientX + "," + event.changeTouches[0].clientY + ")";
                 break;
             case "touchmove":
                 event.preventDefault(); //阻止滚动
-                output.innerHTML += "Touch moved (" + event.changedTouches[0].clientX + "," + event.changedTouches[0].clientY + ")";
+                output.innerHTML = "Touch moved (" + event.changedTouches[0].clientX + "," + event.changedTouches[0].clientY + ")";
                 break;
 	 }
     }
