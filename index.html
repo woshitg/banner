@@ -12,7 +12,7 @@
 	<script>
 function handleTouchEvent(event) {
     //只跟踪一次触摸
-  
+   if (event.touches.length == 1) {
         var output = document.getElementById("output");
         switch (event.type) {
             case "touchstart":
@@ -25,7 +25,7 @@ function handleTouchEvent(event) {
                 event.preventDefault(); //阻止滚动
                 output.innerHTML += "Touch moved (" + event.changedTouches[0].clientX + "," + event.changedTouches[0].clientY + ")";
                 break;
-        
+	 }
     }
 }
 document.addEventListener("touchstart", handleTouchEvent, false);
