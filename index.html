@@ -7,12 +7,12 @@
 
 	</head>
 	<body>
-		<p id="output">这里显示坐标3</p>
+		<p id="output">这里显示坐标4</p>
 	</body>
 	<script>
 function handleTouchEvent(event) {
     //只跟踪一次触摸
-   if (event.touches.length == 1) {
+ 
         var output = document.getElementById("output");
         switch (event.type) {
             case "touchstart":
@@ -26,11 +26,10 @@ function handleTouchEvent(event) {
                 output.innerHTML += "3";
                 break;
 	 }
-    }else{
-	alert("88")
-}
 
 }
+
+
 document.addEventListener("touchstart", handleTouchEvent, false);
 document.addEventListener("touchend", handleTouchEvent, false);
 document.addEventListener("touchmove", handleTouchEvent, false);
