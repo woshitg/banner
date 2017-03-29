@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<panorama id="" hideabout="1">
+<panorama id="">
   <view fovmode="0" pannorth="0">
     <start pan="0" fov="70" tilt="0"/>
     <min pan="0" fov="5" tilt="-90"/>
@@ -15,5 +15,5 @@
     <preview color="0x808080"/>
   </input>
   <altinput tile0url="images/1_o_o_o_800_0.jpg" screensize="1000" tile5url="images/1_o_o_o_800_5.jpg" tilesize="800" tile4url="images/1_o_o_o_800_4.jpg" tile3url="images/1_o_o_o_800_3.jpg" tilescale="1.035088" tile2url="images/1_o_o_o_800_2.jpg" tile1url="images/1_o_o_o_800_1.jpg"/>
-  <control simulatemass="1" lockedmouse="0" lockedkeyboard="0" dblclickfullscreen="1" invertwheel="0" lockedwheel="0" invertcontrol="1" speedwheel="1" sensitivity="8"/>
+  <control simulatemass="1" lockedmouse="0" lockedkeyboard="0" dblclickfullscreen="0" invertwheel="0" lockedwheel="0" invertcontrol="1" speedwheel="1" sensitivity="8"/>
 </panorama>
