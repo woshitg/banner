@@ -1,0 +1,160 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!-- Pano2VR project file  -->
+<pano2vrconfig>
+  <tour>
+    <panorama>
+      <input>
+        <patch/>
+        <filename>1_o_o_0.jpg</filename>
+        <type>auto</type>
+        <hfov>360</hfov>
+      </input>
+      <viewingparameter>
+        <pan/>
+        <tilt/>
+        <fov/>
+      </viewingparameter>
+      <userdata/>
+      <hotspots>
+        <hotspot>
+          <position>
+            <pan>44.8024</pan>
+            <tilt>-52.8553</tilt>
+          </position>
+          <next>
+            <pan>0</pan>
+            <tilt>0</tilt>
+            <fov>0</fov>
+          </next>
+          <polygon/>
+          <type>point</type>
+          <id>Point01</id>
+          <title>1</title>
+          <url>{node2}</url>
+          <skinid>1</skinid>
+        </hotspot>
+      </hotspots>
+      <sounds/>
+      <id>node1</id>
+    </panorama>
+    <panorama>
+      <input>
+        <patch/>
+        <type>auto</type>
+        <filename>car_o_o_0.jpg</filename>
+        <hfov>360</hfov>
+      </input>
+      <viewingparameter>
+        <pan/>
+        <tilt/>
+        <fov/>
+      </viewingparameter>
+      <userdata/>
+      <hotspots/>
+      <output/>
+      <sounds/>
+      <id>node2</id>
+    </panorama>
+  </tour>
+  <panorama>
+    <userdata/>
+    <output>
+      <htmlcss>
+        <html>
+          <enabled>1</enabled>
+          <filename>output/index.html</filename>
+          <template>normal.ggt</template>
+          <values>
+            <value id="bgcolor">#ffffff</value>
+            <value id="fullscreen">false</value>
+            <value id="gyro">false</value>
+            <value id="gyrodisable">false</value>
+            <value id="gyronorth">false</value>
+            <value id="jsxml">false</value>
+            <value id="manifest">false</value>
+            <value id="maps">false</value>
+            <value id="parseanchor">false</value>
+            <value id="showuserdata">false</value>
+            <value id="swf"></value>
+            <value id="swffirst">false</value>
+            <value id="swfgeneric">true</value>
+            <value id="tablebgcolor">#dddddd</value>
+            <value id="tablebordercolor">#777777</value>
+            <value id="tabletextcolor">#000000</value>
+            <value id="textcolor">#000000</value>
+            <value id="touchicon"></value>
+          </values>
+        </html>
+        <facequality/>
+        <autorotate>
+          <enabled>0</enabled>
+          <speed>0.4</speed>
+          <delay>5</delay>
+          <returntohorizon>0</returntohorizon>
+          <afterloaded>0</afterloaded>
+          <nodedelay>0</nodedelay>
+          <noderandom>1</noderandom>
+        </autorotate>
+        <hotspottext>
+          <enabled>1</enabled>
+          <width>180</width>
+          <height>20</height>
+          <auto>0</auto>
+          <textcolor>#000000</textcolor>
+          <textwrap>1</textwrap>
+          <background>1</background>
+          <backgroundcolor>#ffffff</backgroundcolor>
+          <border>1</border>
+          <bordercolor>#000000</bordercolor>
+          <borderradius>1</borderradius>
+        </hotspottext>
+        <hotspotstyle>
+          <viewmode>hidden</viewmode>
+          <backgroundcolor>#0000ff,64</backgroundcolor>
+          <bordercolor>#0000ff</bordercolor>
+        </hotspotstyle>
+        <filename>output/1_o_o_out.xml</filename>
+        <tilesize>285</tilesize>
+        <quality>90</quality>
+        <progressivejpeg>0</progressivejpeg>
+        <cubefilename>images/$n_o.jpg</cubefilename>
+        <cubefacenaming>_5</cubefacenaming>
+        <windowwidth>640</windowwidth>
+        <windowheight>480</windowheight>
+        <fovmode>vertical</fovmode>
+        <sensitivity>8</sensitivity>
+        <masssimulation>1</masssimulation>
+        <locked>0</locked>
+        <invertcontrol>1</invertcontrol>
+        <dblclickfullscreen>0</dblclickfullscreen>
+        <lockedwheel>0</lockedwheel>
+        <invertwheel>0</invertwheel>
+        <speedwheel>1</speedwheel>
+        <keyboardlocked>0</keyboardlocked>
+        <hideaboutbox>0</hideaboutbox>
+        <skinSvgToPng>0</skinSvgToPng>
+        <skinimagepath>images</skinimagepath>
+        <preview>grayscale</preview>
+        <previewresolution>4</previewresolution>
+        <previewcolor>#808080</previewcolor>
+        <leveltileenabled>0</leveltileenabled>
+        <leveltilesize>512</leveltilesize>
+        <leveltilefilename>tiles/$n/c%c_l%r_%y_%x.jpg</leveltilefilename>
+        <leveltilegeneratefiles>1</leveltilegeneratefiles>
+        <leveltileoverlap>1</leveltileoverlap>
+        <levelswitchbias>0.4</levelswitchbias>
+        <previewquality>25</previewquality>
+      </htmlcss>
+    </output>
+    <input>
+      <patch/>
+    </input>
+    <viewingparameter>
+      <pan/>
+      <tilt/>
+      <fov/>
+    </viewingparameter>
+    <hotspots/>
+    <sounds/>
+  </panorama>
+</pano2vrconfig>
