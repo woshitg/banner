@@ -1,7 +1,7 @@
 // Garden Gnome Software - Skin
 // Pano2VR pro 4.5.3/10717
 // Filename: lala.ggsk
-// Generated 周三 3月 29 15:45:13 2017
+// Generated 周三 3月 29 16:25:11 2017
 
 function pano2vrSkin(player,base) {
 	var me=this;
