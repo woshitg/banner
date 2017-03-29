@@ -1,7 +1,7 @@
 // Garden Gnome Software - Skin
 // Pano2VR pro 4.5.3/10717
 // Filename: lala.ggsk
-// Generated 周三 3月 29 16:25:11 2017
+// Generated 周三 3月 29 17:07:08 2017
 
 function pano2vrSkin(player,base) {
 	var me=this;
@@ -98,14 +98,14 @@ function pano2vrSkin(player,base) {
 			this.style[domTransition]='none';
 			if (this.parentNode) {
 				w=this.parentNode.offsetWidth;
-				this.style.left=Math.floor(-307 + w/2) + 'px';
+				this.style.left=Math.floor(-99 + w/2) + 'px';
 				h=this.parentNode.offsetHeight;
-				this.style.top=Math.floor(-232 + h) + 'px';
+				this.style.top=Math.floor(-144 + h) + 'px';
 			}
 		}
 		hs ='position:absolute;';
-		hs+='left: -307px;';
-		hs+='top:  -232px;';
+		hs+='left: -99px;';
+		hs+='top:  -144px;';
 		hs+='width: 238px;';
 		hs+='height: 128px;';
 		hs+=cssPrefix + 'transform-origin: 50% 50%;';
@@ -184,7 +184,7 @@ function pano2vrSkin(player,base) {
 		this._image_2.className='ggskin ggskin_image';
 		this._image_2.ggType='image';
 		hs ='position:absolute;';
-		hs+='left: -3px;';
+		hs+='left: -1px;';
 		hs+='top:  -4px;';
 		hs+='width: 100px;';
 		hs+='height: 100px;';
@@ -264,9 +264,9 @@ function pano2vrSkin(player,base) {
 		this._rectangle_1.className='ggskin ggskin_rectangle';
 		this._rectangle_1.ggType='rectangle';
 		hs ='position:absolute;';
-		hs+='left: -8px;';
-		hs+='top:  -9px;';
-		hs+='width: 109px;';
+		hs+='left: -6px;';
+		hs+='top:  -8px;';
+		hs+='width: 107px;';
 		hs+='height: 109px;';
 		hs+=cssPrefix + 'transform-origin: 50% 50%;';
 		hs+='visibility: inherit;';
@@ -281,8 +281,8 @@ function pano2vrSkin(player,base) {
 		this._image_1.className='ggskin ggskin_image';
 		this._image_1.ggType='image';
 		hs ='position:absolute;';
-		hs+='left: -3px;';
-		hs+='top:  -5px;';
+		hs+='left: -2px;';
+		hs+='top:  -4px;';
 		hs+='width: 100px;';
 		hs+='height: 100px;';
 		hs+=cssPrefix + 'transform-origin: 50% 50%;';
@@ -323,14 +323,14 @@ function pano2vrSkin(player,base) {
 			this.style[domTransition]='none';
 			if (this.parentNode) {
 				w=this.parentNode.offsetWidth;
-				this.style.left=Math.floor(-314 + w/2) + 'px';
+				this.style.left=Math.floor(-175 + w/2) + 'px';
 				h=this.parentNode.offsetHeight;
-				this.style.top=Math.floor(-83 + h) + 'px';
+				this.style.top=Math.floor(-78 + h) + 'px';
 			}
 		}
 		hs ='position:absolute;';
-		hs+='left: -314px;';
-		hs+='top:  -83px;';
+		hs+='left: -175px;';
+		hs+='top:  -78px;';
 		hs+='width: 64px;';
 		hs+='height: 64px;';
 		hs+=cssPrefix + 'transform-origin: 50% 50%;';

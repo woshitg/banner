@@ -16,6 +16,7 @@
     <input tile0url="images/car_o_o_o_0.jpg" prev5url="images/car_o_o_o_preview_5.jpg" prev4url="images/car_o_o_o_preview_4.jpg" prev3url="images/car_o_o_o_preview_3.jpg" prev2url="images/car_o_o_o_preview_2.jpg" prev1url="images/car_o_o_o_preview_1.jpg" prev0url="images/car_o_o_o_preview_0.jpg" tile5url="images/car_o_o_o_5.jpg" tilesize="285" tile4url="images/car_o_o_o_4.jpg" tile3url="images/car_o_o_o_3.jpg" tilescale="1.035088" tile2url="images/car_o_o_o_2.jpg" tile1url="images/car_o_o_o_1.jpg">
       <preview color="0x808080"/>
     </input>
+    <altinput tile0url="images/car_o_o_o_800_0.jpg" screensize="1000" tile5url="images/car_o_o_o_800_5.jpg" tilesize="800" tile4url="images/car_o_o_o_800_4.jpg" tile3url="images/car_o_o_o_800_3.jpg" tilescale="1.035088" tile2url="images/car_o_o_o_800_2.jpg" tile1url="images/car_o_o_o_800_1.jpg"/>
     <control simulatemass="1" lockedmouse="0" lockedkeyboard="0" dblclickfullscreen="0" invertwheel="0" lockedwheel="0" invertcontrol="1" speedwheel="1" sensitivity="8"/>
   </panorama>
   <panorama id="node2" hideabout="1">
@@ -34,6 +35,7 @@
     <input tile0url="images/1_o_o_o_o_0.jpg" prev5url="images/1_o_o_o_o_preview_5.jpg" prev4url="images/1_o_o_o_o_preview_4.jpg" prev3url="images/1_o_o_o_o_preview_3.jpg" prev2url="images/1_o_o_o_o_preview_2.jpg" prev1url="images/1_o_o_o_o_preview_1.jpg" prev0url="images/1_o_o_o_o_preview_0.jpg" tile5url="images/1_o_o_o_o_5.jpg" tilesize="285" tile4url="images/1_o_o_o_o_4.jpg" tile3url="images/1_o_o_o_o_3.jpg" tilescale="1.035088" tile2url="images/1_o_o_o_o_2.jpg" tile1url="images/1_o_o_o_o_1.jpg">
       <preview color="0x808080"/>
     </input>
+    <altinput tile0url="images/1_o_o_o_o_800_0.jpg" screensize="1000" tile5url="images/1_o_o_o_o_800_5.jpg" tilesize="800" tile4url="images/1_o_o_o_o_800_4.jpg" tile3url="images/1_o_o_o_o_800_3.jpg" tilescale="1.035088" tile2url="images/1_o_o_o_o_800_2.jpg" tile1url="images/1_o_o_o_o_800_1.jpg"/>
     <control simulatemass="1" lockedmouse="0" lockedkeyboard="0" dblclickfullscreen="0" invertwheel="0" lockedwheel="0" invertcontrol="1" speedwheel="1" sensitivity="8"/>
   </panorama>
 </tour>
