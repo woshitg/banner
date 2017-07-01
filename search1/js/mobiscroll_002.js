@@ -486,7 +486,6 @@
         * @param {Boolean} prevAnim - Prevent animation if true
         */
         that.show = function (prevAnim) {
-        	alert(1)
             if (s.disabled || visible) {
                 return false;
             }
