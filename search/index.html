@@ -4,18 +4,9 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width,target-densitydpi=high-dpi,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
 		<title></title>
-		<link href="css/mobiscroll_003.css" rel="stylesheet" type="text/css">
-	    <link rel="stylesheet" type="text/css" href="css/demo.css">
-	   	<link href="css/mobiscroll_002.css" rel="stylesheet" type="text/css">
-	    <link href="css/mobiscroll.css" rel="stylesheet" type="text/css">
+	    <link href="css/mobiscroll-2.13.2.full.min.css" rel="stylesheet" type="text/css">
 		<script type="text/javascript" src ="js/jquery-2.1.4.min.js"></script>
-        <script src="js/mobiscroll_002.js" type="text/javascript"></script>
-	    <script src="js/mobiscroll_004.js" type="text/javascript"></script>
-	    <script src="js/mobiscroll.js" type="text/javascript"></script>
-	    <script src="js/mobiscroll_003.js" type="text/javascript"></script>
-	    <script src="js/mobiscroll_005.js" type="text/javascript"></script>
-	    <script src="js/picker.min.js"></script>
-		<script src="js/city.js"></script>
+		<script src="js/mobiscroll-2.13.2.full.min.js" type="text/javascript"></script>
 		<script>
 		(function (doc, win) {
 	        var docEl = doc.documentElement,
@@ -40,7 +31,10 @@
 	    	*{
 	    		margin: 0;
 	    		padding: 0;
-	    	}	    	
+	    	}	 	
+	    	input.tmp{
+	    		opacity: 0;
+	    	}
 			@keyframes mymove
 			{
 			from {background-color:#ffd200;box-shadow:0px 2px 5px #f1f0e7;}
@@ -65,36 +59,21 @@
 			to {background-color:#ffd200 ;box-shadow:0px 2px 5px #f1f0e7;}
 			}
 			
-	    </style>
-	    <script>
-	    	$(function(){
-			    var city = remote_ip_info['city'];
-			    $('#city').html(city);
-			    var obj =$('#touch_press');
-				document.getElementById('touch_press').addEventListener('touchstart', function () {
-					$('#touch_press').css({animation:'mymove 0.2s linear forwards'});
-				});
-				document.getElementById('touch_press').addEventListener('touchend', function () {
-					$('#touch_press').css({animation:'mymove1 0.2s linear forwards'})
-				});
-		    })
-		</script>
+	   </style>
 	</head>
 	<body>
 		<div class="place_search" style="width:100%;overflow:hidden;margin-top: 0.3rem;">
 			<div style='height:0.32rem;margin-bottom:0.3rem;padding-top:0.12rem;padding-left:0.88rem;padding-right:0.24rem;background: url(img/HOME_07.gif) no-repeat 3.2% center; background-size:0.44rem 0.44rem;'>
-				<div id='city' style="color：#333;font-size: 0.32rem;width:3rem;float: left;height:0.32rem;"></div>
+				<div id="current-area" style="color：#333;font-size: 0.32rem;width:3rem;float: left;height:0.32rem;"></div>
 				<div style="color：#333;font-size: 0.32rem;width:1.3rem;padding-left:0.5rem;float: right;height:0.32rem;background: url(img/HOME_10.gif) no-repeat left center; background-size:0.3rem 0.3rem;">当前位置</div>
 			</div>
 			<div style='height:0.44rem;padding-left:0.88rem;padding-right:0.24rem;margin-bottom:0.3rem;background: url(img/HOME_14.gif) no-repeat 3.2% center; background-size:0.44rem 0.44rem;'>
-				<div style='width:18%;float:left;height:0.44rem;line-height:0.66rem;color:#333;font-size: 0.32rem;margin-right: 0.2rem;' class="demos">
-					<input style='border:none;color:#333;font-size: 0.32rem;' value="" class="" readonly="readonly" name="appDateTime" id="appDateTime" type="text">
+				<div style='width:18%;float:left;height:0.44rem;line-height:0.66rem;color:#333;font-size: 0.32rem;margin-right: 0.2rem;'>
 				</div>
 				<div style='float:right;margin-right:40%;height:0.44rem;line-height:0.7rem;color:#999;font-size: 0.24rem;'>入场</div>
 			</div>
 			<div style='height:0.44rem;padding-left:0.88rem;padding-right:0.24rem;margin-bottom:0.3rem;'>
-				<div style='width:18%;float:left;height:0.44rem;line-height:0.66rem;color:#333;font-size: 0.32rem;margin-right: 0.2rem;' class="demos">
-					<input style='border:none;color:#333;font-size: 0.32rem;' value="" class="" readonly="readonly" name="appDateTime" id="appDateTime1" type="text">
+				<div style='width:18%;float:left;height:0.44rem;line-height:0.66rem;color:#333;font-size: 0.32rem;margin-right: 0.2rem;' class="demos">					
 				</div>
 				<div style='float:right;margin-right:40%;height:0.44rem;line-height:0.7rem;color:#999;font-size: 0.24rem;'>离场</div>
 			</div>
@@ -102,53 +81,712 @@
 				<input style='border:none;outline:none;font-size: 0.32rem;float: left;height:0.32rem;color:#999;' placeholder='关键词/位置/店名' type="text"/>
 			</div>
 			<div id="touch_press" style="text-align:center;color:#fff;line-height:0.88rem;width:7.02rem;margin:0 auto;font-size:0.36rem;font-family:'微软雅黑';margin-bottom:10px;height: 0.88rem;box-shadow:0px 2px 5px #f1f0e7;border-radius:6px;background: #ffd200 url(img/HOME_19.gif) no-repeat 40% CENTER; background-size: 0.44REM 0.44rem;">搜索</div>
-		</div>
+		</div> 
+<ul id="current-area-list" style="display: none">  
+        <li><div data-value="2">北京</div>  
+            <ul>  
+                     <li data-value="36">东城</li>  
+                     <li data-value="37">西城</li>  
+                     <li data-value="38">崇文</li>  
+                     <li data-value="39">宣武</li>  
+                     <li data-value="40">朝阳</li>  
+                     <li data-value="41">丰台</li>  
+                     <li data-value="42">石景山</li>  
+                     <li data-value="43">海淀</li>  
+                     <li data-value="44">门头沟</li>  
+                     <li data-value="45">房山</li>  
+                     <li data-value="46">通州</li>  
+                     <li data-value="47">顺义</li>  
+                     <li data-value="48">昌平</li>  
+                     <li data-value="49">大兴</li>  
+                     <li data-value="50">平谷</li>  
+                     <li data-value="51">怀柔</li>  
+                     <li data-value="52">密云</li>  
+                     <li data-value="53">延庆</li>  
+             </ul>  
+       </li>  
+           <li><div data-value="3">天津</div>  
+       <ul>  
+                     <li data-value="54">和平</li>  
+                     <li data-value="55">河东</li>  
+                     <li data-value="56">河西</li>  
+                     <li data-value="57">南开</li>  
+                     <li data-value="58">红桥</li>  
+                     <li data-value="59">塘沽</li>  
+                     <li data-value="60">汉沽</li>  
+                     <li data-value="61">大港</li>  
+                     <li data-value="62">东丽</li>  
+                     <li data-value="63">西青</li>  
+                     <li data-value="64">津南</li>  
+                     <li data-value="65">北辰</li>  
+                     <li data-value="66"> 宁河</li>  
+                     <li data-value="67">武清</li>  
+                     <li data-value="68">静海</li>  
+                     <li data-value="69">宝坻</li>  
+                     <li data-value="70">蓟州</li>  
+                  </ul>  
+       </li>  
+           <li><div data-value="4">河北</div>  
+       <ul>  
+                     <li data-value="71">石家庄</li>  
+                     <li data-value="72">唐山</li>  
+                     <li data-value="73">秦皇岛</li>  
+                     <li data-value="74">邯郸</li>  
+                     <li data-value="75">邢台</li>  
+                     <li data-value="76">保定</li>  
+                     <li data-value="77">张家口</li>  
+                     <li data-value="78">承德</li>  
+                     <li data-value="79">沧州</li>  
+                     <li data-value="80">廊坊</li>  
+                     <li data-value="81">衡水</li>  
+                  </ul>  
+       </li>  
+           <li><div data-value="5">山西</div>  
+       <ul>  
+                     <li data-value="82">太原</li>  
+                     <li data-value="83">大同</li>  
+                     <li data-value="84">阳泉</li>  
+                     <li data-value="85">长治</li>  
+                     <li data-value="86">晋中</li>  
+                     <li data-value="87">运城</li>  
+                     <li data-value="88">忻州</li>  
+                     <li data-value="89">临汾</li>  
+                     <li data-value="90">吕梁</li>  
+                  </ul>  
+       </li>  
+           <li><div data-value="6">内蒙古</div>  
+       <ul>  
+                     <li data-value="91">呼和浩特</li>  
+                     <li data-value="92">包头</li>  
+                     <li data-value="93">乌海</li>  
+                     <li data-value="94">赤峰</li>  
+                     <li data-value="95">通辽</li>  
+                     <li data-value="96">鄂尔多斯</li>  
+                     <li data-value="97">呼伦贝尔</li>  
+                     <li data-value="98">巴彦淖尔</li>  
+                     <li data-value="99">乌兰察布</li>  
+                     <li data-value="100">海拉尔</li>  
+                     <li data-value="101">集宁</li>  
+                     <li data-value="102">巴彦浩特</li>  
+                     <li data-value="103">锡林浩特</li>  
+                     <li data-value="104">临河</li>  
+                     <li data-value="105">乌兰察布盟</li>  
+                     <li data-value="106">兴安盟</li>  
+                     <li data-value="107">阿拉善盟</li>  
+                     <li data-value="108">兴安</li>  
+                     <li data-value="109">锡林郭勒</li>  
+                     <li data-value="110">阿拉善</li>  
+                  </ul>  
+       </li>  
+           <li><div data-value="7">辽宁</div>  
+       <ul>  
+                     <li data-value="111">沈阳</li>  
+                     <li data-value="112">大连</li>  
+                     <li data-value="113">鞍山</li>  
+                     <li data-value="114">抚顺</li>  
+                     <li data-value="115">本溪</li>  
+                     <li data-value="116">丹东</li>  
+                     <li data-value="117">锦州</li>  
+                     <li data-value="118">营口</li>  
+                     <li data-value="119">阜新</li>  
+                     <li data-value="120">辽阳</li>  
+                     <li data-value="121">盘锦</li>  
+                     <li data-value="122">铁岭</li>  
+                     <li data-value="123">葫芦岛</li>  
+                  </ul>  
+       </li>  
+           <li><div data-value="8">吉林</div>  
+       <ul>  
+                     <li data-value="124">长春</li>  
+                     <li data-value="125">四平</li>  
+                     <li data-value="126">辽源</li>  
+                     <li data-value="127">通化</li>  
+                     <li data-value="128">白山</li>  
+                     <li data-value="129">松源</li>  
+                     <li data-value="130">白城</li>  
+                     <li data-value="131">梅河口</li>  
+                     <li data-value="132">珲春</li>  
+                     <li data-value="133">延吉</li>  
+                     <li data-value="134">延边</li>  
+                  </ul>  
+       </li>  
+           <li><div data-value="9">黑龙江</div>  
+       <ul>  
+                     <li data-value="135">哈尔滨</li>  
+                     <li data-value="136">齐齐哈尔</li>  
+                     <li data-value="137">鸡西</li>  
+                     <li data-value="138">鹤岗</li>  
+                     <li data-value="139">双鸭山</li>  
+                     <li data-value="140">大庆</li>  
+                     <li data-value="141">伊春</li>  
+                     <li data-value="142">佳木斯</li>  
+                     <li data-value="143">七台河</li>  
+                     <li data-value="144">牡丹江</li>  
+                     <li data-value="145">黑河</li>  
+                     <li data-value="146">绥化</li>  
+                     <li data-value="147">大兴安岭</li>  
+                  </ul>  
+       </li>  
+           <li><div data-value="10">上海</div>  
+       <ul>  
+                     <li data-value="148">黄浦</li>  
+                     <li data-value="149">南区</li>  
+                     <li data-value="150">卢湾</li>  
+                     <li data-value="151">徐汇</li>  
+                     <li data-value="152">长宁</li>  
+                     <li data-value="153">静安</li>  
+                     <li data-value="154">普陀</li>  
+                     <li data-value="155">闸北</li>  
+                     <li data-value="156">虹口</li>  
+                     <li data-value="157">杨浦</li>  
+                     <li data-value="158">闵行</li>  
+                     <li data-value="159">宝山</li>  
+                     <li data-value="160">嘉定</li>  
+                     <li data-value="161">浦东新区</li>  
+                     <li data-value="162">金山</li>  
+                     <li data-value="163">松江</li>  
+                     <li data-value="164">南汇</li>  
+                     <li data-value="165">奉贤</li>  
+                     <li data-value="166">青浦</li>  
+                     <li data-value="167">崇明</li>  
+                  </ul>  
+       </li>  
+           <li><div data-value="11">江苏</div>  
+       <ul>  
+                     <li data-value="168">南京</li>  
+                     <li data-value="169">无锡</li>  
+                     <li data-value="170">徐州</li>  
+                     <li data-value="171">常州 </li>  
+                     <li data-value="172">苏州</li>  
+                     <li data-value="173">南通</li>  
+                     <li data-value="174">连云港</li>  
+                     <li data-value="175">淮安 </li>  
+                     <li data-value="176">盐城</li>  
+                     <li data-value="177">扬州</li>  
+                     <li data-value="178">镇江</li>  
+                     <li data-value="179">秦州</li>  
+                     <li data-value="180">宿迁</li>  
+                  </ul>  
+       </li>  
+           <li><div data-value="12">浙江</div>  
+       <ul>  
+                     <li data-value="181">杭州</li>  
+                     <li data-value="182">宁波</li>  
+                     <li data-value="183">温州</li>  
+                     <li data-value="184">嘉兴</li>  
+                     <li data-value="185">湖州</li>  
+                     <li data-value="186">绍兴</li>  
+                     <li data-value="187">金华</li>  
+                     <li data-value="188">衡州</li>  
+                     <li data-value="189">舟山</li>  
+                     <li data-value="190">台州</li>  
+                     <li data-value="191">丽水</li>  
+                  </ul>  
+       </li>  
+           <li><div data-value="13">安徽</div>  
+       <ul>  
+                     <li data-value="192">合肥</li>  
+                     <li data-value="193">芜湖</li>  
+                     <li data-value="194">蚌埠</li>  
+                     <li data-value="195">淮南</li>  
+                     <li data-value="196">马鞍山</li>  
+                     <li data-value="197">淮北</li>  
+                     <li data-value="198">铜陵</li>  
+                     <li data-value="199">安庆</li>  
+                     <li data-value="200">黄山</li>  
+                     <li data-value="201">滁州</li>  
+                     <li data-value="202">阜阳</li>  
+                     <li data-value="203">宿州</li>  
+                     <li data-value="204">巢湖</li>  
+                     <li data-value="205">六安</li>  
+                     <li data-value="206">毫州</li>  
+                     <li data-value="207">池州</li>  
+                     <li data-value="208">宣城</li>  
+                  </ul>  
+       </li>  
+           <li><div data-value="14">福建</div>  
+       <ul>  
+                     <li data-value="209">福州</li>  
+                     <li data-value="210">厦门</li>  
+                     <li data-value="211">莆田</li>  
+                     <li data-value="212">三明</li>  
+                     <li data-value="213">泉州</li>  
+                     <li data-value="214">漳州</li>  
+                     <li data-value="215">南平</li>  
+                     <li data-value="216">龙岩</li>  
+                     <li data-value="217">宁德</li>  
+                  </ul>  
+       </li>  
+           <li><div data-value="15">江西</div>  
+       <ul>  
+                     <li data-value="218">南昌</li>  
+                     <li data-value="219">景德镇</li>  
+                     <li data-value="220">萍乡</li>  
+                     <li data-value="221">九江</li>  
+                     <li data-value="222">新余</li>  
+                     <li data-value="223">鹰潭</li>  
+                     <li data-value="224">赣州</li>  
+                     <li data-value="225">吉安</li>  
+                     <li data-value="226">宜春</li>  
+                     <li data-value="227">抚州</li>  
+                     <li data-value="228">上饶</li>  
+                  </ul>  
+       </li>  
+           <li><div data-value="16">山东</div>  
+       <ul>  
+                     <li data-value="229">济南</li>  
+                     <li data-value="230">青岛</li>  
+                     <li data-value="231">淄博</li>  
+                     <li data-value="232">枣庄</li>  
+                     <li data-value="233">东营</li>  
+                     <li data-value="234">烟台</li>  
+                     <li data-value="235">潍坊</li>  
+                     <li data-value="236">济宁</li>  
+                     <li data-value="237">泰安</li>  
+                     <li data-value="238">威海</li>  
+                     <li data-value="239">日照</li>  
+                     <li data-value="240">莱芜</li>  
+                     <li data-value="241">临沂</li>  
+                     <li data-value="242">德州</li>  
+                     <li data-value="243">聊城</li>  
+                     <li data-value="244">滨州</li>  
+                     <li data-value="245">菏泽</li>  
+                  </ul>  
+       </li>  
+           <li><div data-value="17">河南</div>  
+       <ul>  
+                     <li data-value="246">郑州</li>  
+                     <li data-value="247">开封</li>  
+                     <li data-value="248">洛阳</li>  
+                     <li data-value="249">平顶山</li>  
+                     <li data-value="250">安阳</li>  
+                     <li data-value="251">鹤壁</li>  
+                     <li data-value="252">新乡</li>  
+                     <li data-value="253">焦作</li>  
+                     <li data-value="254">濮阳</li>  
+                     <li data-value="255">许昌</li>  
+                     <li data-value="256">漯河</li>  
+                     <li data-value="257">三门峡</li>  
+                     <li data-value="258">南阳</li>  
+                     <li data-value="259">商丘</li>  
+                     <li data-value="260">信阳</li>  
+                     <li data-value="261">周口</li>  
+                     <li data-value="262">驻马店</li>  
+                     <li data-value="263">潢川</li>  
+                     <li data-value="264">济源</li>  
+                  </ul>  
+       </li>  
+           <li><div data-value="18">湖北</div>  
+       <ul>  
+                     <li data-value="265">武汉</li>  
+                     <li data-value="266">黄石</li>  
+                     <li data-value="267">十堰</li>  
+                     <li data-value="268">仙桃</li>  
+                     <li data-value="269">宜昌</li>  
+                     <li data-value="270">襄阳</li>  
+                     <li data-value="271">鄂州</li>  
+                     <li data-value="272">荆门</li>  
+                     <li data-value="273">孝感</li>  
+                     <li data-value="274">荆州</li>  
+                     <li data-value="275">黄冈</li>  
+                     <li data-value="276">咸宁</li>  
+                     <li data-value="277">随州</li>  
+                     <li data-value="278">江汉</li>  
+                     <li data-value="279">天门</li>  
+                     <li data-value="280">潜江</li>  
+                     <li data-value="281">神农架区</li>  
+                     <li data-value="282">恩施</li>  
+                  </ul>  
+       </li>  
+           <li><div data-value="19">湖南</div>  
+       <ul>  
+                     <li data-value="283">长沙</li>  
+                     <li data-value="284">株洲</li>  
+                     <li data-value="285">湘潭</li>  
+                     <li data-value="286">衡阳</li>  
+                     <li data-value="287">邵阳</li>  
+                     <li data-value="288">常德</li>  
+                     <li data-value="289">张家界</li>  
+                     <li data-value="290">益阳</li>  
+                     <li data-value="291">郴州</li>  
+                     <li data-value="292">永州</li>  
+                     <li data-value="293">怀化</li>  
+                     <li data-value="294">娄底</li>  
+                     <li data-value="295">吉首</li>  
+                     <li data-value="296">湘西</li>  
+                  </ul>  
+       </li>  
+           <li><div data-value="20">广东</div>  
+       <ul>  
+                     <li data-value="297">广州</li>  
+                     <li data-value="298">韶关</li>  
+                     <li data-value="299">深圳</li>  
+                     <li data-value="300">珠海</li>  
+                     <li data-value="301">汕头</li>  
+                     <li data-value="302">佛山</li>  
+                     <li data-value="303">江门</li>  
+                     <li data-value="304">湛江</li>  
+                     <li data-value="305">茂名</li>  
+                     <li data-value="306">顺德</li>  
+                     <li data-value="307">潮阳</li>  
+                     <li data-value="308">肇庆</li>  
+                     <li data-value="309">惠州</li>  
+                     <li data-value="310">梅州</li>  
+                     <li data-value="311">汕尾</li>  
+                     <li data-value="312">河源</li>  
+                     <li data-value="313">阳江</li>  
+                     <li data-value="314">清远</li>  
+                     <li data-value="315">中山</li>  
+                     <li data-value="316">潮州</li>  
+                     <li data-value="317">揭阳</li>  
+                     <li data-value="318">云浮</li>  
+                  </ul>  
+       </li>  
+           <li><div data-value="21">广西</div>  
+       <ul>  
+                     <li data-value="319">南宁</li>  
+                     <li data-value="320">柳州</li>  
+                     <li data-value="321">桂林</li>  
+                     <li data-value="322">梧州</li>  
+                     <li data-value="323">北海</li>  
+                     <li data-value="324">防城港</li>  
+                     <li data-value="325">钦州</li>  
+                     <li data-value="326">贵港</li>  
+                     <li data-value="327">玉林</li>  
+                     <li data-value="328">百色</li>  
+                     <li data-value="329">贺州</li>  
+                     <li data-value="330">河池</li>  
+                     <li data-value="331">来宾</li>  
+                     <li data-value="332">崇左</li>  
+                  </ul>  
+       </li>  
+           <li><div data-value="22">海南</div>  
+       <ul>  
+                     <li data-value="333">海口</li>  
+                     <li data-value="334">三亚</li>  
+                     <li data-value="335">儋州</li>  
+                     <li data-value="336">文昌</li>  
+                     <li data-value="337">三沙地区</li>  
+                     <li data-value="338">琼海</li>  
+                  </ul>  
+       </li>  
+           <li><div data-value="23">重庆</div>  
+       <ul>  
+                     <li data-value="339">万州</li>  
+                     <li data-value="340">涪陵</li>  
+                     <li data-value="341">渝中</li>  
+                     <li data-value="342">大渡口</li>  
+                     <li data-value="343">江北</li>  
+                     <li data-value="344">沙坪坝</li>  
+                     <li data-value="345">九龙坡</li>  
+                     <li data-value="346">南岸</li>  
+                     <li data-value="347">北碚</li>  
+                     <li data-value="348">万盛</li>  
+                     <li data-value="349">双桥</li>  
+                     <li data-value="350">渝北</li>  
+                     <li data-value="351">巴南</li>  
+                     <li data-value="352">长寿</li>  
+                     <li data-value="353">綦江</li>  
+                     <li data-value="354">潼南</li>  
+                     <li data-value="355">铜梁</li>  
+                     <li data-value="356">大足</li>  
+                     <li data-value="357">荣昌</li>  
+                     <li data-value="358">璧山</li>  
+                     <li data-value="359">梁平</li>  
+                     <li data-value="360">城口</li>  
+                     <li data-value="361">丰都</li>  
+                     <li data-value="362">垫江</li>  
+                     <li data-value="363">武隆</li>  
+                     <li data-value="364">忠县</li>  
+                     <li data-value="365">开县</li>  
+                     <li data-value="366">云阳</li>  
+                     <li data-value="367">奉节</li>  
+                     <li data-value="368">巫山</li>  
+                     <li data-value="369">巫溪</li>  
+                     <li data-value="370">黔江</li>  
+                     <li data-value="371">石柱</li>  
+                     <li data-value="372">秀山</li>  
+                     <li data-value="373">酋阳</li>  
+                     <li data-value="374">彭水</li>  
+                     <li data-value="375">江津</li>  
+                     <li data-value="376">合川</li>  
+                     <li data-value="377">永川</li>  
+                     <li data-value="378">南川</li>  
+                  </ul>  
+       </li>  
+           <li><div data-value="24">四川</div>  
+       <ul>  
+                     <li data-value="379">成都</li>  
+                     <li data-value="380">自贡</li>  
+                     <li data-value="381">攀枝花</li>  
+                     <li data-value="382">泸州</li>  
+                     <li data-value="383">德阳</li>  
+                     <li data-value="384">绵阳</li>  
+                     <li data-value="385">广元</li>  
+                     <li data-value="386">遂宁</li>  
+                     <li data-value="387">内江</li>  
+                     <li data-value="388">乐山</li>  
+                     <li data-value="389">南充</li>  
+                     <li data-value="390">眉山</li>  
+                     <li data-value="391">宜宾</li>  
+                     <li data-value="392">广安</li>  
+                     <li data-value="393">达州</li>  
+                     <li data-value="394">雅安</li>  
+                     <li data-value="395">巴中</li>  
+                     <li data-value="396">资阳</li>  
+                     <li data-value="397">阿坝</li>  
+                     <li data-value="398">甘孜</li>  
+                     <li data-value="399">凉山</li>  
+                  </ul>  
+       </li>  
+           <li><div data-value="25">贵州</div>  
+       <ul>  
+                     <li data-value="400">贵阳</li>  
+                     <li data-value="401">六盘水</li>  
+                     <li data-value="402">遵义</li>  
+                     <li data-value="403">安顺</li>  
+                     <li data-value="404">兴义</li>  
+                     <li data-value="405">凯里</li>  
+                     <li data-value="406">都匀</li>  
+                     <li data-value="407">铜仁</li>  
+                     <li data-value="408">黔西南</li>  
+                     <li data-value="409">毕节</li>  
+                     <li data-value="410">黔东南</li>  
+                     <li data-value="411">黔南</li>  
+                  </ul>  
+       </li>  
+           <li><div data-value="26">云南</div>  
+       <ul>  
+                     <li data-value="412">昆明</li>  
+                     <li data-value="413">怒江</li>  
+                     <li data-value="414">曲靖</li>  
+                     <li data-value="415">玉溪</li>  
+                     <li data-value="416">保山</li>  
+                     <li data-value="417">昭通</li>  
+                     <li data-value="418">丽江</li>  
+                     <li data-value="419">普洱</li>  
+                     <li data-value="420">临沧</li>  
+                     <li data-value="421">版纳</li>  
+                     <li data-value="422">楚雄</li>  
+                     <li data-value="423">红河</li>  
+                     <li data-value="424">文山</li>  
+                     <li data-value="425">西双版纳</li>  
+                     <li data-value="426">大理</li>  
+                     <li data-value="427">德宏</li>  
+                     <li data-value="428">怒江傈</li>  
+                     <li data-value="429">迪庆</li>  
+                  </ul>  
+       </li>  
+           <li><div data-value="27">西藏</div>  
+       <ul>  
+                     <li data-value="430">拉萨</li>  
+                     <li data-value="431">昌都</li>  
+                     <li data-value="432">山南</li>  
+                     <li data-value="433">日喀则</li>  
+                     <li data-value="434">那曲</li>  
+                     <li data-value="435">阿里</li>  
+                     <li data-value="436">林芝</li>  
+                  </ul>  
+       </li>  
+           <li><div data-value="28">陕西</div>  
+       <ul>  
+                     <li data-value="437">西安</li>  
+                     <li data-value="438">铜川</li>  
+                     <li data-value="439">宝鸡</li>  
+                     <li data-value="440">咸阳</li>  
+                     <li data-value="441">渭南</li>  
+                     <li data-value="442">延安</li>  
+                     <li data-value="443">汉中</li>  
+                     <li data-value="444">榆林</li>  
+                     <li data-value="445">安康</li>  
+                     <li data-value="446">商洛</li>  
+                  </ul>  
+       </li>  
+           <li><div data-value="29">甘肃</div>  
+       <ul>  
+                     <li data-value="447">兰州</li>  
+                     <li data-value="448">嘉峪关</li>  
+                     <li data-value="449">金昌</li>  
+                     <li data-value="450">白银</li>  
+                     <li data-value="451">天水</li>  
+                     <li data-value="452">武威</li>  
+                     <li data-value="453">张掖</li>  
+                     <li data-value="454">平京</li>  
+                     <li data-value="455">酒泉</li>  
+                     <li data-value="456">庆阳</li>  
+                     <li data-value="457">定西</li>  
+                     <li data-value="458">陇南</li>  
+                     <li data-value="459">临夏</li>  
+                     <li data-value="460">甘南</li>  
+                  </ul>  
+       </li>  
+           <li><div data-value="30">青海</div>  
+       <ul>  
+                     <li data-value="461">西宁</li>  
+                     <li data-value="462">格尔木</li>  
+                     <li data-value="463">海东</li>  
+                     <li data-value="464">海北</li>  
+                     <li data-value="465">黄南</li>  
+                     <li data-value="466">果洛</li>  
+                     <li data-value="467">玉树</li>  
+                     <li data-value="468">海西</li>  
+                  </ul>  
+       </li>  
+           <li><div data-value="31">宁夏</div>  
+       <ul>  
+                     <li data-value="469">银川</li>  
+                     <li data-value="470">石嘴山</li>  
+                     <li data-value="471">吴忠</li>  
+                     <li data-value="472">固原</li>  
+                     <li data-value="473">中卫</li>  
+                  </ul>  
+       </li>  
+           <li><div data-value="32">新疆</div>  
+       <ul>  
+                     <li data-value="474">乌鲁木齐</li>  
+                     <li data-value="475">克拉玛依</li>  
+                     <li data-value="476">奎屯</li>  
+                     <li data-value="477">吐鲁番</li>  
+                     <li data-value="478">哈密</li>  
+                     <li data-value="479">昌吉</li>  
+                     <li data-value="480">博尔塔拉</li>  
+                     <li data-value="481">巴音郭楞</li>  
+                     <li data-value="482">阿克苏</li>  
+                     <li data-value="483">克孜勒苏</li>  
+                     <li data-value="484">喀什</li>  
+                     <li data-value="485">和田</li>  
+                     <li data-value="486">伊犁</li>  
+                     <li data-value="487">塔城</li>  
+                     <li data-value="488">阿勒泰</li>  
+                     <li data-value="489">石河子</li>  
+                     <li data-value="490">五家渠</li>  
+                  </ul>  
+       </li>  
+           <li><div data-value="33">台湾</div>  
+       <ul>  
+                     <li data-value="534">台北</li>  
+                     <li data-value="535">新北</li>  
+                     <li data-value="536">桃园</li>  
+                     <li data-value="537">台中</li>  
+                     <li data-value="538">台南</li>  
+                     <li data-value="539">高雄</li>  
+                  </ul>  
+       </li>  
+           <li><div data-value="34">香港</div>  
+       <ul>  
+                     <li data-value="540">中西区</li>  
+                     <li data-value="541">东区</li>  
+                     <li data-value="542">九龙城区</li>  
+                     <li data-value="543">观塘区</li>  
+                     <li data-value="544">深水埗区</li>  
+                     <li data-value="545">黄大仙区</li>  
+                     <li data-value="546">湾仔区</li>  
+                     <li data-value="547">油尖旺区</li>  
+                     <li data-value="548">离岛区</li>  
+                     <li data-value="549">葵青区</li>  
+                     <li data-value="550">北区</li>  
+                     <li data-value="551">西贡区</li>  
+                     <li data-value="552">沙田区</li>  
+                     <li data-value="553">屯门区 </li>  
+                     <li data-value="554">大埔区</li>  
+                     <li data-value="555">荃湾区</li>  
+                     <li data-value="556">元朗区</li>  
+                  </ul>  
+       </li>  
+           <li><div data-value="35">澳门</div>  
+       <ul>  
+                     <li data-value="557">花地玛堂区</li>  
+                     <li data-value="558">圣安多尼堂区</li>  
+                     <li data-value="559">大堂区</li>  
+                     <li data-value="560">望德堂区</li>  
+                     <li data-value="561">风顺堂区</li>  
+                     <li data-value="562">嘉模堂区</li>  
+                     <li data-value="563">圣方济各堂区</li>  
+                     <li data-value="564">路氹城</li>  
+                  </ul>  
+       </li>  
+           <li><div data-value="491">国外</div>  
+       <ul>  
+                     <li data-value="492">澳大利亚</li>  
+                     <li data-value="493">加拿大</li>  
+                     <li data-value="494">英国</li>  
+                     <li data-value="495">日本</li>  
+                     <li data-value="496">新加坡</li>  
+                     <li data-value="497">德国</li>  
+                     <li data-value="498">法国</li>  
+                     <li data-value="499">韩国</li>  
+                     <li data-value="500">比利时</li>  
+                     <li data-value="501">新西兰</li>  
+                     <li data-value="502">瑞典</li>  
+                     <li data-value="503">瑞士</li>  
+                     <li data-value="504">荷兰</li>  
+                     <li data-value="505">阿联酋</li>  
+                     <li data-value="506">芬兰</li>  
+                     <li data-value="507">丹麦</li>  
+                     <li data-value="508">泰国</li>  
+                     <li data-value="509">西班牙</li>  
+                     <li data-value="510">意大利</li>  
+                     <li data-value="511">挪威</li>  
+                     <li data-value="512">奥地利</li>  
+                     <li data-value="513">爱尔兰</li>  
+                     <li data-value="514">马来西亚</li>  
+                     <li data-value="515">尼日利亚</li>  
+                     <li data-value="516">俄罗斯</li>  
+                     <li data-value="517">巴西</li>  
+                     <li data-value="518">南非</li>  
+                     <li data-value="519">葡萄牙</li>  
+                     <li data-value="520">墨西哥</li>  
+                     <li data-value="521">印尼</li>  
+                     <li data-value="522">越南</li>  
+                     <li data-value="523">以色列</li>  
+                     <li data-value="524">科威特</li>  
+                     <li data-value="525">希腊</li>  
+                     <li data-value="526">匈牙利</li>  
+                     <li data-value="527">阿根廷</li>  
+                     <li data-value="528">印度</li>  
+                     <li data-value="529">柬埔寨</li>  
+                     <li data-value="530">菲律宾</li>  
+                     <li data-value="531">埃及</li>  
+                     <li data-value="532">土耳其</li>  
+                     <li data-value="533">其他</li>  
+                  </ul>  
+       </li>  
+    </ul> 
 	</body>
 	<script type="text/javascript">
-        $(function () {
-			var currYear = (new Date()).getFullYear();	
-			var opt={};
-			opt.date = {preset : 'date'};
-			opt.datetime = {preset : 'datetime'};
-			opt.time = {preset : 'time'};
-			opt.default = {
-				theme: 'jqm', //皮肤样式
-		        display: 'modal', //显示方式 
-		        mode: 'scroller', //日期选择模式
-				dateFormat: 'yyyy-mm-dd',
-				lang: 'zh',
-				showNow: true,
-				nowText: "今天",
-		        startYear: currYear, //开始年份
-		        endYear: currYear + 5 ,
-		       	stepHour: 9,
-                startH:9,
-                endH:18,//结束年份
-			};
-		  	var optDateTime = $.extend(opt['datetime'], opt['default']);
-		  	var optTime = $.extend(opt['time'], opt['default']);
-			$("#appDateTime").mobiscroll(optDateTime).datetime(optDateTime);
-			var opt1={};
-			opt1.date = {preset : 'date'};
-			opt1.datetime = {preset : 'datetime'};
-			opt1.time = {preset : 'time'};
-			opt1.default = {
-				theme: 'jqm', //皮肤样式
-		        display: 'modal', //显示方式 
-		        mode: 'scroller', //日期选择模式
-				dateFormat: 'yyyy-mm-dd',
-				lang: 'zh',
-				showNow: true,
-				nowText: "今天",
-		        startYear: currYear, //开始年份
-		        endYear: currYear + 5 ,
-		       	stepHour: 9,
-                startH:8,
-                endH:17,//结束年份
-			};
-		  	var optDateTime1 = $.extend(opt1['datetime'], opt1['default']);
-		    $("#appDateTime1").mobiscroll(optDateTime1).datetime(optDateTime1);		  	
+    $(function(){
+		$("#current-area").click(function () {
+            var that = this;
+            $("#current-area-list").mobiscroll().treelist({
+                theme: "android-ics light",
+                lang: "zh",
+                inputClass: 'tmp',
+                headerText: '请您选择',
+                onSelect: function (valueText, inst) {
+                    console.log(valueText);
+                    var n = valueText.split(' ');
+                    var m1 = $(this).children("li").eq(n[0]).find("div").html();
+                    var m1_id = $(this).children("li").eq(n[0]).find("div").attr("data-value");
+                    var m2 = $(this).children("li").eq(n[0]).find("li").eq(n[1]).html();
+                    var m2_id = $(this).children("li").eq(n[0]).find("li").eq(n[1]).attr("data-value");
+                    console.log(m1);
+                    console.log(m2);
+                    console.log(m1_id);
+                    console.log(m2_id);
+                    $('#current-area').html(m1+m2)
+                    /*$.post("inc/person.org.php", {apart: "resume_base", current_area: m1+m2, current_areaPID: m1_id, current_areaCID: m2_id}, function (result) {
+                        if (result == 'ok') {
+                            $(that).find(".mbase-menu-txt").html(m1+m2);
+                        }
+                        else {
+                            error('网络繁忙，请您稍后再试');
+                        }
+                    });*/
+                }
+            });
+            $("input[id^=current-area-list]").focus();
         });
+  	})
 			var myDate = new Date();
 			var	dateMo=(myDate.getMonth() + 1)
 			var	dateDa=(myDate.getDate())
@@ -174,114 +812,3 @@
     </script>
     
 </html>
-<script>
-var nameEl = document.getElementById('city');
-
-var first = []; /* 省，直辖市 */
-var second = []; /* 市 */
-var third = []; /* 镇 */
-
-var selectedIndex = [0, 0, 0]; /* 默认选中的地区 */
-
-var checked = [0, 0, 0]; /* 已选选项 */
-
-function creatList(obj, list){
-  obj.forEach(function(item, index, arr){
-  var temp = new Object();
-  temp.text = item.name;
-  temp.value = index;
-  list.push(temp);
-  })
-}
-
-creatList(city, first);
-
-if (city[selectedIndex[0]].hasOwnProperty('sub')) {
-  creatList(city[selectedIndex[0]].sub, second);
-} else {
-  second = [{text: '', value: 0}];
-}
-
-if (city[selectedIndex[0]].sub[selectedIndex[1]].hasOwnProperty('sub')) {
-  creatList(city[selectedIndex[0]].sub[selectedIndex[1]].sub, third);
-} else {
-  third = [{text: '', value: 0}];
-}
-
-var picker = new Picker({
-    data: [first, second, third],
-  selectedIndex: selectedIndex,
-    title: '地址选择'
-});
-
-picker.on('picker.select', function (selectedVal, selectedIndex) {
-  var text1 = first[selectedIndex[0]].text;
-  var text2 = second[selectedIndex[1]].text;
-  var text3 = third[selectedIndex[2]] ? third[selectedIndex[2]].text : '';
-
-    nameEl.innerText = text1 + ' ' + text2 + ' ' + text3;
-});
-
-picker.on('picker.change', function (index, selectedIndex) {
-  if (index === 0){
-    firstChange();
-  } else if (index === 1) {
-    secondChange();
-  }
-
-  function firstChange() {
-    second = [];
-    third = [];
-    checked[0] = selectedIndex;
-    var firstCity = city[selectedIndex];
-    if (firstCity.hasOwnProperty('sub')) {
-      creatList(firstCity.sub, second);
-
-      var secondCity = city[selectedIndex].sub[0]
-      if (secondCity.hasOwnProperty('sub')) {
-        creatList(secondCity.sub, third);
-      } else {
-        third = [{text: '', value: 0}];
-        checked[2] = 0;
-      }
-    } else {
-      second = [{text: '', value: 0}];
-      third = [{text: '', value: 0}];
-      checked[1] = 0;
-      checked[2] = 0;
-    }
-
-    picker.refillColumn(1, second);
-    picker.refillColumn(2, third);
-    picker.scrollColumn(1, 0)
-    picker.scrollColumn(2, 0)
-  }
-
-  function secondChange() {
-    third = [];
-    checked[1] = selectedIndex;
-    var first_index = checked[0];
-    if (city[first_index].sub[selectedIndex].hasOwnProperty('sub')) {
-      var secondCity = city[first_index].sub[selectedIndex];
-      creatList(secondCity.sub, third);
-      picker.refillColumn(2, third);
-      picker.scrollColumn(2, 0)
-    } else {
-      third = [{text: '', value: 0}];
-      checked[2] = 0;
-      picker.refillColumn(2, third);
-      picker.scrollColumn(2, 0)
-    }
-  }
-
-});
-
-picker.on('picker.valuechange', function (selectedVal, selectedIndex) {
-  console.log(selectedVal);
-  console.log(selectedIndex);
-});
-
-nameEl.addEventListener('click', function () {
-    picker.show();
-});
-</script>
