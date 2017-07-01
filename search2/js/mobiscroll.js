@@ -4,7 +4,6 @@
     var ms = $.mobiscroll,
         date = new Date(),
         defaults = {
-        	temptg:false,
             dateFormat: 'mm/dd/yy',
             dateOrder: 'mmddy',
             timeWheels: 'hhiiA',
@@ -26,9 +25,7 @@
             nowText: 'Now',
             showNow: false,
             stepHour: 1,
-            startH:1,
-            endH:1,
-            stepMinute:60,
+            stepMinute: 1,
             stepSecond: 1,
             separator: ' '
         },
@@ -87,8 +84,6 @@
                 stepH = s.stepHour,
                 stepM = s.stepMinute,
                 stepS = s.stepSecond,
-                startH= s.startH,
-                endH= s.endH
                 mind = s.minDate || new Date(s.startYear, 0, 1),
                 maxd = s.maxDate || new Date(s.endYear, 11, 31, 23, 59, 59);
                 
@@ -160,8 +155,8 @@
                     if (k == o.h) {
                         offset++;
                         w[s.hourText] = {};
-                        for (i = startH; i <=endH ; i += stepH) {
-                            w[s.hourText][i] = hampm && i == 0 ? 12 : tord.match(/hh/i) && (i) < 10 ? '0' + i: i;
+                        for (i = 0; i < (hampm ? 12 : 24); i += stepH) {
+                            w[s.hourText][i] = hampm && i == 0 ? 12 : tord.match(/hh/i) && i < 10 ? '0' + i : i;
                         }
                     } else if (k == o.i) {
                         offset++;
@@ -269,10 +264,15 @@
                     }
                     return result;
                 },
+                /**
+                * Validates the selected date to be in the minDate / maxDate range and sets unselectable values to disabled
+                * @param {Object} dw - jQuery object containing the generated html
+                * @param {Integer} [i] - Index of the changed wheel, not set for initial validation
+                */
                 validate: function (dw, i) {
                     var temp = inst.temp, //.slice(0),
-                        mins = { y: mind.getFullYear(), m: 0, d: 1, h: startH, i: 0, s: 0, a: 0 },
-                        maxs = { y: maxd.getFullYear(), m: 11, d: 31, h: endH, i: step(59, stepM), s: step(59, stepS), a: 1 },
+                        mins = { y: mind.getFullYear(), m: 0, d: 1, h: 0, i: 0, s: 0, a: 0 },
+                        maxs = { y: maxd.getFullYear(), m: 11, d: 31, h: step(hampm ? 11 : 23, stepH), i: step(59, stepM), s: step(59, stepS), a: 1 },
                         minprop = true,
                         maxprop = true;
                     $.each(['y', 'm', 'd', 'a', 'h', 'i', 's'], function (x, i) {
@@ -417,7 +417,6 @@
     * @return {String} - Returns the formatted date string.
     */
     ms.formatDate = function (format, date, settings) {
-    	
         if (!date) {
             return null;
         }
@@ -529,8 +528,8 @@
             month = def.getMonth() + 1,
             day = def.getDate(),
             doy = -1,
-            hours = 9,
-            minutes = 0,
+            hours = def.getHours(),
+            minutes = def.getMinutes(),
             seconds = 0, //def.getSeconds(),
             ampm = -1,
             literal = false, // Check whether a format character is doubled

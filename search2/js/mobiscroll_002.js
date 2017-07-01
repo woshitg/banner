@@ -1,3 +1,12 @@
+/*jslint eqeq: true, plusplus: true, undef: true, sloppy: true, vars: true, forin: true */
+/*!
+ * jQuery MobiScroll v2.5.1
+ * http://mobiscroll.com
+ *
+ * Copyright 2010-2013, Acid Media
+ * Licensed under the MIT license.
+ *
+ */
 (function ($) {
 
     function Scroller(elem, settings) {
@@ -40,13 +49,12 @@
             var html = '<div class="dw-bf">',
                 l = 1,
                 j;
-           
+
             for (j in warr[i]) {
                 if (l % 20 == 0) {
                     html += '</div><div class="dw-bf">';
                 }
                 html += '<div class="dw-li dw-v" data-val="' + j + '" style="height:' + hi + 'px;line-height:' + hi + 'px;"><div class="dw-i">' + warr[i][j] + '</div></div>';
-
                 l++;
             }
             html += '</div>';
@@ -310,8 +318,9 @@
                 t.data('pos', val).closest('.dwwl').removeClass('dwa');
             }
             
-            var px = (m - val) * hi-36,
+            var px = (m - val) * hi,
                 i;
+            
             if (px == pixels[index] && iv[index]) {
                 return;
             }
@@ -520,7 +529,7 @@
                 // Create wheels
                 for (label in s.wheels[i]) {
                     warr[l] = s.wheels[i][label];
-                    html += '<td><div class="dwwl dwrc dwwl' + l + '">' + (s.mode != 'scroller' ? '<div class="dwwb dwwbp" style="height:' + hi + 'px;line-height:' + hi + 'px;"><span>+</span></div><div class="dwwb dwwbm" style="height:' + hi + 'px;line-height:' + hi + 'px;"><span>&ndash;</span></div>' : '') + '<div class="dwl">' + label + '</div><div class="dww" style="height:' + ((s.rows-2) * hi) + 'px;min-width:' + s.width + 'px;"><div class="dw-ul">';
+                    html += '<td><div class="dwwl dwrc dwwl' + l + '">' + (s.mode != 'scroller' ? '<div class="dwwb dwwbp" style="height:' + hi + 'px;line-height:' + hi + 'px;"><span>+</span></div><div class="dwwb dwwbm" style="height:' + hi + 'px;line-height:' + hi + 'px;"><span>&ndash;</span></div>' : '') + '<div class="dwl">' + label + '</div><div class="dww" style="height:' + (s.rows * hi) + 'px;min-width:' + s.width + 'px;"><div class="dw-ul">';
                     // Create wheel values
                     html += generateWheelItems(l);
                     html += '</div><div class="dwwo"></div></div><div class="dwwol"></div></div></td>';
@@ -1085,7 +1094,7 @@
         $('.dwb-a').removeClass('dwb-a');
                 
     }).bind('mouseover mouseup mousedown click', function (e) { // Prevent standard behaviour on body click
-       if (tap) {
+        if (tap) {
             e.stopPropagation();
             e.preventDefault();
             return false;
