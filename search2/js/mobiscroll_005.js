@@ -11,8 +11,8 @@
         }
     }
 
-    $.mobiscroll.themes['jqm'] = theme;
-
+    $.mobiscroll.themes['android-ics light'] = theme;
+	$.mobiscroll.themes['"android-ics'] = theme;
 
 })(jQuery);
 
