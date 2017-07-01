@@ -91,7 +91,7 @@
                 endH= s.endH
                 mind = s.minDate || new Date(s.startYear, 0, 1),
                 maxd = s.maxDate || new Date(s.endYear, 11, 31, 23, 59, 59);
-           
+                
             inst.settings = s;
 
             format = format || hformat;
@@ -269,11 +269,6 @@
                     }
                     return result;
                 },
-                /**
-                * Validates the selected date to be in the minDate / maxDate range and sets unselectable values to disabled
-                * @param {Object} dw - jQuery object containing the generated html
-                * @param {Integer} [i] - Index of the changed wheel, not set for initial validation
-                */
                 validate: function (dw, i) {
                     var temp = inst.temp, //.slice(0),
                         mins = { y: mind.getFullYear(), m: 0, d: 1, h: startH, i: 0, s: 0, a: 0 },
