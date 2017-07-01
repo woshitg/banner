@@ -40,7 +40,8 @@
 	    	*{
 	    		margin: 0;
 	    		padding: 0;
-	    	}	    	
+	    	}	 
+	    	a,img,button,input,textarea,div{-webkit-tap-highlight-color:rgba(255,255,255,0);}   	
 			@keyframes mymove
 			{
 			from {background-color:#ffd200;box-shadow:0px 2px 5px #f1f0e7;}
@@ -84,7 +85,7 @@
 		<div class="place_search" style="width:100%;overflow:hidden;margin-top: 0.3rem;">
 			<div style='height:0.32rem;margin-bottom:0.3rem;padding-top:0.12rem;padding-left:0.88rem;padding-right:0.24rem;background: url(img/HOME_07.gif) no-repeat 3.2% center; background-size:0.44rem 0.44rem;'>
 				<div id='city' style="color：#333;font-size: 0.32rem;width:3rem;float: left;height:0.32rem;"></div>
-				<div style="color：#333;font-size: 0.32rem;width:1.3rem;padding-left:0.5rem;float: right;height:0.32rem;background: url(img/HOME_10.gif) no-repeat left center; background-size:0.3rem 0.3rem;">当前位置</div>
+				<div style="color：#333;font-size: 0.32rem;width:2.3rem;padding-left:0.5rem;float: right;height:0.32rem;background: url(img/HOME_10.gif) no-repeat left center; background-size:0.3rem 0.3rem;">当前位置</div>
 			</div>
 			<div style='height:0.44rem;padding-left:0.88rem;padding-right:0.24rem;margin-bottom:0.3rem;background: url(img/HOME_14.gif) no-repeat 3.2% center; background-size:0.44rem 0.44rem;'>
 				<div style='width:18%;float:left;height:0.44rem;line-height:0.66rem;color:#333;font-size: 0.32rem;margin-right: 0.2rem;' class="demos">
@@ -117,7 +118,6 @@
 		        mode: 'scroller', //日期选择模式
 				dateFormat: 'yyyy-mm-dd',
 				lang: 'zh',
-				display: 'bottom',
 				showNow: true,
 				nowText: "今天",
 		        startYear: currYear, //开始年份
