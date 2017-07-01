@@ -36,22 +36,6 @@
 	    })(document, window);  
 	    </script>
 	    <script src="http://int.dpool.sina.com.cn/iplookup/iplookup.php?format=js"></script>
-	       <style type="text/css">
-
-        input, select {
-            width: 100%;
-            padding: 5px;
-            margin: 5px 0;
-            border: 1px solid #aaa;
-            box-sizing: border-box;
-            border-radius: 5px;
-            -moz-box-sizing: border-box;
-            -webkit-box-sizing: border-box;
-            -webkit-border-radius: 5px;
-        }
-      
-       
-    </style>
 	   <style>
 	    	*{
 	    		margin: 0;
@@ -123,6 +107,7 @@
 	</body>
 	<script type="text/javascript">
         $(function () {
+		 $(function () {
 			var currYear = (new Date()).getFullYear();	
 			var opt={};
 			opt.date = {preset : 'date'};
@@ -136,35 +121,15 @@
 				lang: 'zh',
 				showNow: true,
 				nowText: "今天",
-		        startYear: currYear, //开始年份
-		        endYear: currYear + 5 ,
-		       	stepHour: 9,
-                startH:9,
-                endH:18,//结束年份
+		        startYear: currYear - 10, //开始年份
+		        endYear: currYear + 10 //结束年份
 			};
+		  	$("#appDate").mobiscroll($.extend(opt['date'], opt['default']));
 		  	var optDateTime = $.extend(opt['datetime'], opt['default']);
 		  	var optTime = $.extend(opt['time'], opt['default']);
-			$("#appDateTime").mobiscroll(optDateTime).datetime(optDateTime);
-			var opt1={};
-			opt1.date = {preset : 'date'};
-			opt1.datetime = {preset : 'datetime'};
-			opt1.time = {preset : 'time'};
-			opt1.default = {
-				theme: 'android-ics light', //皮肤样式
-		        display: 'modal', //显示方式 
-		        mode: 'scroller', //日期选择模式
-				dateFormat: 'yyyy-mm-dd',
-				lang: 'zh',
-				showNow: true,
-				nowText: "今天",
-		        startYear: currYear, //开始年份
-		        endYear: currYear + 5 ,
-		       	stepHour: 9,
-                startH:8,
-                endH:17,//结束年份
-			};
-		  	var optDateTime1 = $.extend(opt1['datetime'], opt1['default']);
-		    $("#appDateTime1").mobiscroll(optDateTime1).datetime(optDateTime1);		  	
+		    $("#appDateTime").mobiscroll(optDateTime).datetime(optDateTime);
+		    $("#appTime").mobiscroll(optTime).time(optTime);
+        });	  	
         });
 			var myDate = new Date();
 			var	dateMo=(myDate.getMonth() + 1)
